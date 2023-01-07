@@ -30,7 +30,6 @@ class Razionale{
             this->denominatore = d;
             this->mcd = MCD(numeratore, denominatore);
             semplificazione();
-            std::cout << "VALORE MCD: " << mcd << std::endl;
         }
 
         void semplificazione(){
@@ -40,18 +39,17 @@ class Razionale{
             }
         }
 
-        friend
-            std::ostream& operator<<(std::ostream& os, const Razionale& r);
+    friend
+        std::ostream& operator<<(std::ostream& os, const Razionale& r);
 
-        friend
-            short int MCD(int n, int d);
+    friend
+        short int MCD(int n, int d);
 };
 
 inline std::ostream& operator<<(std::ostream& os, const Razionale& r){
     if(r.denominatore == 1) return os << r.numeratore << std::endl;
 
-    os << r.numeratore << " / " << r.denominatore << std::endl;
-    return os;
+    os << r.numeratore << " / " << r.denominatore << std::endl; return os;
 }
 
 inline short int MCD(int n, int d) {return d == 0 ? n : MCD(d, n%d);}
